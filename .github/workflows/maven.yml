@@ -24,3 +24,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Deploymenttomcat
+      run: curl -v -u admin:admin -T /home/runner/work/spring-pipeline-shell/spring-pipeline-shell/target/spring-petclinic-4.2.war 'http://ec2-3-110-27-57.ap-south-1.compute.amazonaws.com:8080//manager/text/deploy?path=/petclinic'
+
